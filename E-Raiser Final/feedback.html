@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-RAISER • Student Records</title>
+  <link rel="stylesheet" href="app/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-img" src="assets/school-logo.jpg" alt="School Logo">
+        <div>
+          <div style="font-weight:800">E-RAISER</div>
+          <div class="small muted">Student Records & Recommendations</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <a class="btn ghost" href="teacher.html">← Back to Teacher</a>
+        <span id="userBadge" class="badge">Loading…</span>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Student Records</h2>
+      <p class="small">See recent quiz attempts with student names and scores.</p>
+      <div id="msg" class="notice" hidden></div>
+      <div id="attempts" class="grid"></div>
+    </section>
+
+    <section class="card" style="margin-top:14px;">
+      <h2>Recommend a Story</h2>
+      <p class="small">Recommend a story to a grade level (optional). Students will see ⭐ Recommended.</p>
+
+      <div class="row">
+        <div style="flex:1; min-width: 240px" class="field">
+          <label>Choose Story</label>
+          <select id="storySelect"></select>
+        </div>
+        <div style="min-width: 200px" class="field">
+          <label>Grade Level (optional)</label>
+          <select id="gradeSelect">
+            <option value="">All grades</option>
+            <option value="7">Grade 7</option>
+            <option value="8">Grade 8</option>
+            <option value="9">Grade 9</option>
+            <option value="10">Grade 10</option>
+            <option value="11">Grade 11</option>
+            <option value="12">Grade 12</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Recommendation Note (optional)</label>
+        <textarea id="note" rows="3" placeholder="Why you recommend this story…"></textarea>
+      </div>
+
+      <button id="recBtn" class="btn primary">Save Recommendation</button>
+    </section>
+
+    <section class="card" style="margin-top:14px;">
+      <div class="card-title">
+        <h2>Current Recommendations</h2>
+        <span class="chip">Delete wrong recs</span>
+      </div>
+      <p class="small">Use Delete if you recommended the wrong story.</p>
+      <div id="recsGrid" class="grid"></div>
+    </section>
+  </main>
+
+  <script type="module" src="app/feedback.js"></script>
+</body>
+</html>

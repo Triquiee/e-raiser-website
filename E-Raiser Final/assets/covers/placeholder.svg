@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640">
+  <rect width="480" height="640" rx="36" fill="#fffdf8"/>
+  <rect x="22" y="22" width="436" height="596" rx="26" fill="#fff" stroke="rgba(0,0,0,.08)" stroke-width="6"/>
+  <text x="50%" y="300" text-anchor="middle" font-family="system-ui, sans-serif" font-size="36" fill="#ff3b30" font-weight="900">E-RAISER</text>
+  <text x="50%" y="350" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" fill="#6b7280">Cover not set</text>
+  <path d="M140 420h200" stroke="#ff9500" stroke-width="10" stroke-linecap="round" opacity=".8"/>
+  <path d="M170 470h140" stroke="#ffd166" stroke-width="10" stroke-linecap="round" opacity=".8"/>
+</svg>

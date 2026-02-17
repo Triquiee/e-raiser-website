@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-RAISER • Reset Password</title>
+  <link rel="stylesheet" href="app/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-img" src="assets/school-logo.jpg" alt="School Logo">
+        <div>
+          <div style="font-weight:800">E-RAISER</div>
+          <div class="small muted">Password Reset</div>
+        </div>
+      </div>
+      <a class="btn ghost" href="auth.html">← Back</a>
+    </div>
+  </div>
+
+  <main class="wrap" style="max-width: 760px;">
+    <section class="card">
+      <h2>Forgot Password</h2>
+      <p class="small">Enter your email. We’ll send a reset link.</p>
+      <div id="msg" class="notice" hidden></div>
+
+      <div class="field">
+        <label>Email</label>
+        <input id="email" class="input" type="email" placeholder="name@email.com" />
+      </div>
+      <button id="sendBtn" class="btn primary">Send Reset Link</button>
+
+      <hr/>
+
+      <h3>Set New Password</h3>
+      <p class="small">
+        If you opened this page from a reset link, you can set a new password here.
+      </p>
+      <div class="field">
+        <label>New Password (min 8 chars)</label>
+        <input id="newPass" class="input" type="password" />
+      </div>
+      <button id="updateBtn" class="btn">Update Password</button>
+
+      <div class="footer">
+        Note: In Supabase, set Redirect URL to include <span class="kbd">/reset.html</span>.
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app/reset.js"></script>
+</body>
+</html>

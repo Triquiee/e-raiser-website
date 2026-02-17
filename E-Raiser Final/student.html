@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-RAISER • Student</title>
+  <link rel="stylesheet" href="app/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-img" src="assets/school-logo.jpg" alt="School Logo">
+        <div>
+          <div style="font-weight:800">E-RAISER</div>
+          <div class="small muted">Student Dashboard</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <a class="btn ghost" href="dashboard.html">My Progress</a>
+        <span id="userBadge" class="badge">Loading…</span>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="card-title">
+        <h2>Select Grade Level</h2>
+        <span id="gradeChip" class="chip">Grade: —</span>
+      </div>
+      <p class="small">Choose your grade to see recommended stories and level-appropriate content.</p>
+      <div id="msg" class="notice" hidden></div>
+
+      <div class="row">
+        <button class="btn" data-grade="7">Grade 7</button>
+        <button class="btn" data-grade="8">Grade 8</button>
+        <button class="btn" data-grade="9">Grade 9</button>
+        <button class="btn" data-grade="10">Grade 10</button>
+        <button class="btn" data-grade="11">Grade 11</button>
+        <button class="btn" data-grade="12">Grade 12</button>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:14px;">
+      <div class="card-title">
+        <h2>Student Library</h2>
+        <span class="chip">Fairy tales • Alamat</span>
+      </div>
+
+      <div class="row" style="margin-top:10px;">
+        <div style="flex:1; min-width: 240px" class="field">
+          <label>Search (title/keyword)</label>
+          <input id="search" class="input" placeholder="Search stories…" />
+        </div>
+
+        <div style="min-width: 200px" class="field">
+          <label>Type</label>
+          <select id="type">
+            <option value="all">All</option>
+            <option value="fairy_tale">Fairy tales</option>
+            <option value="alamat">Alamat (local legends)</option>
+          </select>
+        </div>
+
+        <div style="min-width: 180px" class="field">
+          <label>Difficulty</label>
+          <select id="difficulty">
+            <option value="all">All</option>
+            <option value="very_easy">Very easy</option>
+            <option value="easy">Easy</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="recBox" class="notice" hidden></div>
+
+      <div id="count" class="small muted" style="margin:6px 0 10px;"></div>
+      <div id="grid" class="grid"></div>
+
+      <div class="footer">
+        Click a story to open the reading page. When finished, tap <b>Done Reading</b> to take a 5-item quiz.
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app/student.js"></script>
+</body>
+</html>

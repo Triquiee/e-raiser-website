@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-RAISER • Login</title>
+  <link rel="stylesheet" href="app/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-img" src="assets/school-logo.jpg" alt="School Logo">
+        <div>
+          <div style="font-weight:800">E-RAISER</div>
+          <div class="small muted">E-Reading Center</div>
+        </div>
+      </div>
+      <a class="btn ghost" href="welcome.html">← Back</a>
+    </div>
+  </div>
+
+  <main class="wrap" style="max-width: 1050px;">
+    <div class="row" style="align-items:stretch">
+      <section class="card" style="flex:1; min-width: 320px;">
+        <h2>Create Account</h2>
+        <p class="small">Make an account first. After signing up, you’ll be asked to log in.</p>
+
+        <div id="signupMsg" class="notice" hidden></div>
+
+        <div class="field">
+          <label>Full Name</label>
+          <input id="suName" class="input" placeholder="Juan Dela Cruz" />
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input id="suEmail" class="input" type="email" placeholder="name@email.com" />
+        </div>
+        <div class="field">
+          <label>Password (min 8 characters)</label>
+          <input id="suPass" class="input" type="password" placeholder="••••••••" />
+        </div>
+        <div class="field">
+          <label>Confirm Password</label>
+          <input id="suPass2" class="input" type="password" placeholder="••••••••" />
+        </div>
+
+        <button id="signupBtn" class="btn primary" style="width:100%;">Create Account</button>
+        <div class="footer">Already have an account? Use Login on the right.</div>
+      </section>
+
+      <section class="card" style="flex:1; min-width: 320px;">
+        <h2>Login</h2>
+        <p class="small">Enter your email and password.</p>
+
+        <div id="loginMsg" class="notice" hidden></div>
+
+        <div class="field">
+          <label>Email</label>
+          <input id="liEmail" class="input" type="email" placeholder="name@email.com" />
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input id="liPass" class="input" type="password" placeholder="••••••••" />
+        </div>
+
+        <div class="row" style="align-items:center">
+          <button id="loginBtn" class="btn primary">Login</button>
+          <a class="btn ghost" href="reset.html">Forgot Password?</a>
+        </div>
+
+        <hr/>
+        <div class="small muted">
+          After login, you’ll choose whether to continue as <b>Teacher</b> or <b>Student</b>.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="app/auth.js"></script>
+</body>
+</html>

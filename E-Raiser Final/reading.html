@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-RAISER • Reading</title>
+  <link rel="stylesheet" href="app/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-img" src="assets/school-logo.jpg" alt="School Logo">
+        <div>
+          <div style="font-weight:800">E-RAISER</div>
+          <div class="small muted">Reading Page</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <a id="backLink" class="btn ghost" href="student.html">← Back</a>
+        <span id="userBadge" class="badge">Loading…</span>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap" style="max-width: 980px;">
+    <section class="card">
+      <div class="card-title">
+        <h2 id="title">Loading…</h2>
+        <span id="meta" class="chip">—</span>
+      </div>
+
+
+      <div class="book-head">
+        <img id="coverImg" class="cover-big cover-pop" src="assets/covers/placeholder.svg" alt="">
+        <div>
+          <div class="row" style="gap:8px; margin:0 0 6px;">
+            <span id="langChip" class="chip">—</span>
+            <span id="authorChip" class="chip">Author: —</span>
+            <span id="yearChip" class="chip">Year: —</span>
+          </div>
+          <div class="small muted">Tip: You can change font size, and use narration while reading.</div>
+        </div>
+      </div>
+
+
+      <div class="toolbar" style="margin-top:10px;">
+        <button id="playBtn" class="btn primary">▶ Play Narration</button>
+        <button id="pauseBtn" class="btn">⏸ Pause</button>
+        <button id="stopBtn" class="btn danger">⏹ Stop</button>
+
+        <span class="pill right">
+          <button id="fontDown" class="btn ghost">A-</button>
+          <span class="small muted">Font</span>
+          <button id="fontUp" class="btn ghost">A+</button>
+        </span>
+      </div>
+
+      <hr/>
+
+      <div id="readingText" class="reading"></div>
+
+      <hr/>
+
+      <div class="row">
+        <button id="doneBtn" class="btn primary right">Done Reading → Quiz</button>
+      </div>
+
+      <div class="footer">
+        Narration uses your browser’s built-in text-to-speech. If it doesn’t play, try Chrome/Edge.
+      </div>
+    </section>
+
+    <section id="ttsWarn" class="warn" style="margin-top:12px;" hidden></section>
+  </main>
+
+  <script type="module" src="app/reading.js"></script>
+</body>
+</html>
