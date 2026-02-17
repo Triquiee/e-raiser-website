@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-RAISER • My Progress</title>
+  <link rel="stylesheet" href="app/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-img" src="assets/school-logo.jpg" alt="School Logo"> 
+        <div>
+          <div style="font-weight:800">E-RAISER</div>
+          <div class="small muted">Progress Tracking</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <a class="btn ghost" href="student.html">← Back to Student</a>
+        <span id="userBadge" class="badge">Loading…</span>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>My Quiz Attempts</h2>
+      <p class="small">This shows your story attempts and quiz scores.</p>
+      <div id="msg" class="notice" hidden></div>
+      <div id="list" class="grid"></div>
+    </section>
+  </main>
+
+  <script type="module" src="app/dashboard.js"></script>
+</body>
+</html>

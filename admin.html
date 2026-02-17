@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-RAISER • Admin</title>
+  <link rel="stylesheet" href="app/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-img" src="assets/school-logo.jpg" alt="School Logo">
+        <div>
+          <div style="font-weight:800">E-RAISER</div>
+          <div class="small muted">Admin • Content Management</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <a class="btn ghost" href="role.html">← Back</a>
+        <span id="userBadge" class="badge">Loading…</span>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <!-- STORIES -->
+    <section class="card">
+      <div class="card-title">
+        <h2>Stories</h2>
+        <span class="chip">Add/Edit/Delete</span>
+      </div>
+
+      <div id="msg" class="notice" hidden></div>
+
+      <div class="row">
+        <button id="newStoryBtn" class="btn primary">+ New Story</button>
+        <div style="flex:1" class="field">
+          <label>Search</label>
+          <input id="search" class="input" placeholder="Search title…" />
+        </div>
+      </div>
+
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <!-- QUIZZES (SIMPLE FORM) -->
+    <section class="card" style="margin-top:14px;">
+      <h2>Quizzes</h2>
+      <p class="small">Each story should have exactly 5 multiple-choice questions. Fill the form and click Save.</p>
+
+      <div class="row">
+        <div style="flex:1; min-width:260px" class="field">
+          <label>Pick Story</label>
+          <select id="storySelect"></select>
+        </div>
+        <button id="loadQuizBtn" class="btn">Load Quiz</button>
+      </div>
+
+      <div id="quizForm"></div>
+
+      <div class="row" style="margin-top:12px;">
+        <button id="saveQuizBtn" class="btn primary">Save Quiz</button>
+        <button id="sampleQuizBtn" class="btn">Fill Sample</button>
+      </div>
+
+      <div class="footer small muted">
+        Tip: Choose the correct answer for each question (A, B, C, or D).
+      </div>
+    </section>
+
+    <!-- USERS -->
+    <section class="card" style="margin-top:14px;">
+      <div class="card-title">
+        <h2>Users</h2>
+        <span class="chip">Manage Profiles</span>
+      </div>
+      <p class="small">Admin can update user role, grade level, and admin access. (Deleting auth accounts requires Supabase service role, so this page edits profiles only.)</p>
+
+      <div class="row">
+        <div style="flex:1" class="field">
+          <label>Search users</label>
+          <input id="userSearch" class="input" placeholder="Search name or user id…" />
+        </div>
+      </div>
+
+      <div id="usersGrid" class="grid"></div>
+    </section>
+
+    <!-- STORY DIALOG -->
+    <dialog id="storyDlg" class="card" style="max-width: 920px;">
+      <div class="card-title">
+        <h2 id="dlgTitle">New Story</h2>
+        <button class="btn ghost" id="closeDlg">Close</button>
+      </div>
+
+      <input id="storyId" type="hidden"/>
+      <input id="coverPath" type="hidden"/>
+
+      <div class="row">
+        <div style="flex:1; min-width:260px" class="field">
+          <label>Title</label>
+          <input id="title" class="input"/>
+        </div>
+        <div style="min-width:220px" class="field">
+          <label>Type</label>
+          <select id="type">
+            <option value="fairy_tale">Fairy tale</option>
+            <option value="alamat">Alamat</option>
+          </select>
+        </div>
+        <div style="min-width:220px" class="field">
+          <label>Difficulty</label>
+          <select id="difficulty">
+            <option value="very_easy">Very easy</option>
+            <option value="easy">Easy</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div style="min-width:160px" class="field">
+          <label>Grade min (optional)</label>
+          <input id="gmin" class="input" type="number" min="7" max="12"/>
+        </div>
+        <div style="min-width:160px" class="field">
+          <label>Grade max (optional)</label>
+          <input id="gmax" class="input" type="number" min="7" max="12"/>
+        </div>
+        <div style="flex:1" class="field">
+          <label>Subject tags (comma-separated, optional)</label>
+          <input id="tags" class="input" placeholder="Filipino, English"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <div style="flex:1; min-width:260px" class="field">
+          <label>Cover Image URL (optional)</label>
+          <input id="coverUrl" class="input" placeholder="https://.../cover.jpg"/>
+        </div>
+        <div style="flex:1; min-width:220px" class="field">
+          <label>Author(s)</label>
+          <input id="author" class="input" placeholder="Author name(s)"/>
+        </div>
+        <div style="min-width:160px" class="field">
+          <label>Year Published</label>
+          <input id="year" class="input" type="number" min="1800" max="2100" placeholder="e.g., 2018"/>
+        </div>
+        <div style="min-width:180px" class="field">
+          <label>Language</label>
+          <select id="language">
+            <option value="en">English</option>
+            <option value="fil">Filipino/Tagalog</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Cover upload (Supabase Storage) -->
+      <div class="row" style="align-items:flex-start;">
+        <img id="coverPreview" class="cover-big cover-pop" src="assets/covers/placeholder.svg" alt="Cover preview" />
+        <div style="flex:1; min-width:260px" class="field">
+          <label>Upload / Replace Cover (optional)</label>
+          <input id="coverFile" class="input" type="file" accept="image/*" />
+          <div class="row" style="margin-top:8px;">
+            <button id="uploadCoverBtn" class="btn">Upload / Replace</button>
+            <button id="removeCoverBtn" class="btn danger">Remove Cover</button>
+          </div>
+          <div class="small muted" style="margin-top:8px;">
+            Uses Supabase Storage bucket: <b>covers</b>. After upload, the URL is saved automatically.
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Story content</label>
+        <textarea id="content" rows="10"></textarea>
+      </div>
+
+      <div class="row">
+        <button id="saveStoryBtn" class="btn primary">Save Story</button>
+        <button id="deleteStoryBtn" class="btn danger">Delete Story</button>
+      </div>
+    </dialog>
+
+    <!-- USER DIALOG -->
+    <dialog id="userDlg" class="card" style="max-width: 820px;">
+      <div class="card-title">
+        <h2 id="userDlgTitle">Edit User</h2>
+        <button class="btn ghost" id="closeUserDlg">Close</button>
+      </div>
+
+      <input id="userId" type="hidden" />
+
+      <div class="row">
+        <div style="flex:1; min-width:260px" class="field">
+          <label>Full name</label>
+          <input id="uFullName" class="input" />
+        </div>
+        <div style="min-width:220px" class="field">
+          <label>Role</label>
+          <select id="uRole">
+            <option value="">(not set)</option>
+            <option value="teacher">Teacher</option>
+            <option value="student">Student</option>
+          </select>
+        </div>
+        <div style="min-width:220px" class="field">
+          <label>Grade level (students)</label>
+          <input id="uGrade" class="input" type="number" min="7" max="12" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div style="flex:1; min-width:260px" class="field">
+          <label>Teacher subject (teachers)</label>
+          <input id="uSubject" class="input" placeholder="English, Filipino, Math…" />
+        </div>
+        <label class="pill" style="align-self:flex-end; cursor:pointer;">
+          <input id="uIsAdmin" type="checkbox" />
+          <span>Admin access</span>
+        </label>
+      </div>
+
+      <div class="footer small muted" id="uMeta"></div>
+
+      <div class="row" style="margin-top:12px;">
+        <button id="saveUserBtn" class="btn primary">Save User</button>
+      </div>
+    </dialog>
+  </main>
+
+  <script type="module" src="app/admin.js"></script>
+</body>
+</html>

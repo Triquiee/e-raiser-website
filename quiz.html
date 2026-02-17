@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-RAISER • Quiz</title>
+  <link rel="stylesheet" href="app/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-img" src="assets/school-logo.jpg" alt="School Logo">
+        <div>
+          <div style="font-weight:800">E-RAISER</div>
+          <div class="small muted">Quiz (5 items)</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <a class="btn ghost" href="student.html">← Back to Library</a>
+        <span id="userBadge" class="badge">Loading…</span>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap" style="max-width: 980px;">
+    <section class="card">
+      <div class="card-title">
+        <h2 id="storyTitle">Loading…</h2>
+        <span class="chip">Answer all 5 questions</span>
+      </div>
+      <p class="small">Choose the best answer for each question, then submit.</p>
+
+      <div id="msg" class="notice" hidden></div>
+      <form id="quizForm"></form>
+
+      <div class="row" style="margin-top:12px;">
+        <button id="submitBtn" class="btn primary right" type="button">Submit Quiz</button>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app/quiz.js"></script>
+</body>
+</html>

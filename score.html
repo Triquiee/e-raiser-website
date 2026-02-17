@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-RAISER • Score</title>
+  <link rel="stylesheet" href="app/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-img" src="assets/school-logo.jpg" alt="School Logo">
+        <div>
+          <div style="font-weight:800">E-RAISER</div>
+          <div class="small muted">Score & Feedback</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <a class="btn ghost" href="student.html">← Back to Library</a>
+        <span id="userBadge" class="badge">Loading…</span>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap" style="max-width: 860px;">
+    <section class="card">
+      <h2 id="title">Your Score</h2>
+      <div id="msg" class="notice" hidden></div>
+
+      <div class="row" style="align-items:center; margin-top:8px;">
+        <div class="card" style="flex:1;">
+          <div class="small muted">Result</div>
+          <div id="score" style="font-size:42px; font-weight:900;">—</div>
+        </div>
+        <div class="card" style="flex:2;">
+          <div class="small muted">Feedback</div>
+          <div id="feedback" style="font-size:18px; font-weight:700;">—</div>
+          <div id="tip" class="small muted" style="margin-top:6px;"></div>
+        </div>
+      </div>
+
+      <hr/>
+
+      <div class="row">
+        <a class="btn" href="student.html">Back to Library</a>
+        <a id="readAnother" class="btn primary" href="student.html">Read Another Story</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app/score.js"></script>
+</body>
+</html>

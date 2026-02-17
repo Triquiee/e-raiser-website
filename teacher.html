@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-RAISER • Teacher</title>
+  <link rel="stylesheet" href="app/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-img" src="assets/school-logo.jpg" alt="School Logo">
+        <div>
+          <div style="font-weight:800">E-RAISER</div>
+          <div class="small muted">Teacher Dashboard</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <a class="btn ghost" href="feedback.html">Student Records</a>
+        <span id="userBadge" class="badge">Loading…</span>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="wrap">
+    <section class="card">
+      <div class="card-title">
+        <h2>Choose Subject</h2>
+        <span class="chip">Teacher tools</span>
+      </div>
+      <p class="small">Pick a subject. This will help show stories tagged for that subject (optional tags).</p>
+
+      <div id="msg" class="notice" hidden></div>
+
+      <div class="row">
+        <button class="btn" data-subject="Filipino">Filipino</button>
+        <button class="btn" data-subject="English">English</button>
+        <button class="btn" data-subject="Math">Math</button>
+        <button class="btn" data-subject="Science">Science</button>
+        <button class="btn" data-subject="Araling Panlipunan">AP</button>
+        <button class="btn" data-subject="ESP">ESP</button>
+        <button class="btn" data-subject="TLE">TLE</button>
+        <button class="btn" data-subject="P.E.">P.E.</button>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:14px;">
+      <div class="card-title">
+        <h2>Teacher Library</h2>
+        <span id="subjectChip" class="chip">Subject: —</span>
+      </div>
+
+      <div class="row" style="margin-top:10px;">
+        <div style="flex:1; min-width: 240px" class="field">
+          <label>Search (title/keyword)</label>
+          <input id="search" class="input" placeholder="Search stories…" />
+        </div>
+
+        <div style="min-width: 200px" class="field">
+          <label>Type</label>
+          <select id="type">
+            <option value="all">All</option>
+            <option value="fairy_tale">Fairy tales</option>
+            <option value="alamat">Alamat (local legends)</option>
+          </select>
+        </div>
+
+        <div style="min-width: 180px" class="field">
+          <label>Difficulty</label>
+          <select id="difficulty">
+            <option value="all">All</option>
+            <option value="easy">Easy</option>
+            <option value="very_easy">Very easy</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="count" class="small muted" style="margin:6px 0 10px;"></div>
+      <div id="grid" class="grid"></div>
+
+      <div class="footer">
+        Click a story to open the reading page (with narration) and quiz.
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="app/teacher.js"></script>
+</body>
+</html>

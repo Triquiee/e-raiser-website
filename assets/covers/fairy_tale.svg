@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 640">
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#ff3b30"/><stop offset="1" stop-color="#ff9500"/>
+    </linearGradient>
+  </defs>
+  <rect width="480" height="640" rx="36" fill="url(#bg)"/>
+  <circle cx="120" cy="140" r="54" fill="#fff" opacity=".25"/>
+  <circle cx="370" cy="220" r="72" fill="#fff" opacity=".18"/>
+  <path d="M120 440c60-80 160-80 220 0" fill="none" stroke="#fff" stroke-width="18" stroke-linecap="round" opacity=".65"/>
+  <text x="50%" y="320" text-anchor="middle" font-family="system-ui, sans-serif" font-size="44" fill="#fff" font-weight="800">FAIRY TALE</text>
+  <text x="50%" y="372" text-anchor="middle" font-family="system-ui, sans-serif" font-size="20" fill="#fff" opacity=".9">E-RAISER Cover</text>
+  <rect x="88" y="510" width="304" height="76" rx="18" fill="#fff" opacity=".18"/>
+  <text x="50%" y="560" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" fill="#fff" font-weight="700">Read & Learn</text>
+</svg>

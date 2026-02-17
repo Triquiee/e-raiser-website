@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E-RAISER • Choose Role</title>
+  <link rel="stylesheet" href="app/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <img class="logo-img" src="assets/school-logo.jpg" alt="School Logo">
+        <div>
+          <div style="font-weight:800">E-RAISER</div>
+          <div class="small muted">Role Selection</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <span id="userBadge" class="badge">Loading…</span>
+        <button id="logoutBtn" class="btn ghost">Logout</button>
+      </div>
+    </div>
+  </div>
+
+  <main class="center">
+    <div class="wrap" style="max-width: 820px;">
+      <section class="card">
+        <h2>Continue as:</h2>
+        <p class="small">Choose your role for this session. You can change it later by returning here.</p>
+
+        <div id="msg" class="notice" hidden></div>
+
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr);">
+          <button id="teacherBtn" class="btn primary" style="padding:16px;">
+            👩‍🏫 Teacher
+            <span class="small muted">Give feedback • Recommend stories</span>
+          </button>
+          <button id="studentBtn" class="btn" style="padding:16px;">
+            👩‍🎓 Student
+            <span class="small muted">Read • Listen • Take quizzes</span>
+          </button>
+        </div>
+
+        <hr/>
+        <div class="small muted">
+          If you are unsure, choose <b>Student</b>.
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="app/role.js"></script>
+</body>
+</html>
